@@ -6,13 +6,20 @@ const PostList = () => {
 
   useEffect(() => {
     // Fetch data from the API
-    fetch('ttps://jsonplaceholder.typicode.com/posts')
+    fetch('https://jsonplaceholder.typicode.com/posts')
       .then((response) => response.json())
       .then((data) => {
         setPosts(data);
          // Store all posts in the state
         // Filter the post titles based on your criteria (e.g., containing a specific keyword)
-        const filtered = data.filter((post) => post.title.includes('keyword'));
+        let keyword = ['pariatur',
+          'tempora',
+          'molestias',
+          'Adasd',
+          'Trtry yrty afas',
+         'Hhjgj as grbgvb'
+          ]
+        const filtered = data.filter((post) => post.title.includes(keyword[0]));
         setFilteredPosts(filtered); // Store the filtered posts in the state
       })
       .catch((error) => console.error('Error fetching data:', error));
